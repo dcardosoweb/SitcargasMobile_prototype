@@ -47,7 +47,8 @@
             android:text="Consultar"
             android:id="@+id/btnConsultar"
             android:singleLine="true"
-            android:drawableLeft="@drawable/ic_action_search"/>
+            android:drawableLeft="@drawable/ic_action_search"
+            android:clickable="true" />
     </LinearLayout>
 </LinearLayout>
 
