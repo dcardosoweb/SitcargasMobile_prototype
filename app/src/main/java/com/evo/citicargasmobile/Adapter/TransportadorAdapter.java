@@ -38,7 +38,7 @@ public class TransportadorAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return position;
+        return transportadores.get(position).id;
     }
 
     @Override

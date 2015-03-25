@@ -1,10 +1,8 @@
-<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.evo.citicargasmobile.ConsultarFragment"
-    android:id="@+id/layoutConsultar"
+    android:layout_height="match_parent" tools:context="com.evo.citicargasmobile.InserirFragment"
     android:orientation="vertical"
-    android:paddingTop="50dp"
-    >
+    android:paddingTop="50dp">
 
     <EditText
         android:layout_width="match_parent"
@@ -35,36 +33,18 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="68dp"
+            android:layout_height="wrap_content"
             android:text="Limpar"
             android:id="@+id/btnLimpar"
-            android:singleLine="true"
-            android:layout_weight="0.17" />
-
-
+            android:singleLine="true"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Consultar"
-            android:id="@+id/btnConsultar"
+            android:text="Salvar"
+            android:id="@+id/btnInserir"
             android:singleLine="true"
-            android:drawableLeft="@drawable/ic_action_search"
             android:clickable="true" />
     </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="30dp"
-        android:weightSum="1">
-
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/listViewTransportadorResult"
-            android:layout_gravity="bottom"
-            android:layout_weight="0.17" />
-    </LinearLayout>
 </LinearLayout>
-

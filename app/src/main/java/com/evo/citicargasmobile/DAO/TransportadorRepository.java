@@ -1,5 +1,6 @@
 package com.evo.citicargasmobile.DAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -32,18 +33,32 @@ public class TransportadorRepository {
         return cursor.getCount();
     }
 
+    public long inserir(Transportador transportador){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put("nome", transportador.nome);
+        cv.put("rntrc", transportador.rntrc);
+        cv.put("cpfCnpj", transportador.cpfCnpj);
+
+        long id = db.insert(dbHelper.TABLE_NAME,null, cv);
+
+        return id;
+
+    }
+
     public List<Transportador> consultarTransportadores(String nome, String rntrc, String cpfCnpj) {
         String filterQuery = "SELECT  * FROM " + dbHelper.TABLE_NAME +" WHERE 1=1 ";
 
-        if(nome != null && nome.trim() != ""){
+        if(nome != null && !nome.isEmpty()){
             filterQuery += " and nome LIKE '%"+nome+"%'";
         }
 
-        if(rntrc != null && rntrc.trim() != ""){
+        if(rntrc != null && !rntrc.isEmpty()){
             filterQuery += " and rntrc= '"+rntrc+"'";
         }
 
-        if(cpfCnpj != null && cpfCnpj.trim() != ""){
+        if(cpfCnpj != null && !cpfCnpj.isEmpty()){
             filterQuery += " and cpfCnpj= '"+cpfCnpj+"'";
         }
 
