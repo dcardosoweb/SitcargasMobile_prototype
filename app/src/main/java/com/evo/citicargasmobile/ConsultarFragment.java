@@ -3,6 +3,7 @@ package com.evo.citicargasmobile;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,11 +66,13 @@ public class ConsultarFragment extends Fragment implements View.OnClickListener{
                 txtCpfCnpj.setText(null);
                 break;
             case R.id.btnConsultar:
-                mTransportadores = buscar(txtNome.getText().toString(), txtCpfCnpj.getText().toString(), txtRntrc.getText().toString());
-                mAdapter = new TransportadorAdapter(this.getActivity(),mTransportadores);
-                listV.setAdapter(new TransportadorAdapter(getActivity(), mTransportadores));
-                //Toast.makeText(this.,"Teste",Toast.LENGTH_LONG).show();
-                //Toast.makeText(this, "Transportador cadastrado ID -"+ String.valueOf(id),Toast.LENGTH_LONG).show();
+                Transportador filter = new Transportador(txtCpfCnpj.getText().toString(), txtRntrc.getText().toString(), txtNome.getText().toString());
+                TransportadorListFragment result = new TransportadorListFragment();
+                result.transportadorFilter = filter;
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, result)
+                        .commit();
                 break;
         }
     }

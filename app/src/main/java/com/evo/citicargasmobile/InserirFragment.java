@@ -55,14 +55,12 @@ public class InserirFragment extends Fragment implements View.OnClickListener{
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btnLimpar:
-                txtNome.setText(null);
-                txtRntrc.setText(null);
-                txtCpfCnpj.setText(null);
+                limparCampos();
                 break;
             case R.id.btnInserir:
                 long id = salvar(txtNome.getText().toString(),txtCpfCnpj.getText().toString(),txtRntrc.getText().toString());
-                //Toast.makeText(this.,"Teste",Toast.LENGTH_LONG).show();
                 Toast.makeText(this.getActivity(), "Transportador cadastrado ID -"+ String.valueOf(id),Toast.LENGTH_LONG).show();
+                limparCampos();
                 break;
         }
     }
@@ -72,4 +70,9 @@ public class InserirFragment extends Fragment implements View.OnClickListener{
         return repository.inserir(dto);
     }
 
+    private void limparCampos(){
+        txtNome.setText(null);
+        txtRntrc.setText(null);
+        txtCpfCnpj.setText(null);
+    }
 }
