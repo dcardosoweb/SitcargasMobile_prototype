@@ -3,11 +3,15 @@ package com.evo.citicargasmobile;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.evo.citicargasmobile.DAO.TransportadorRepository;
+import com.evo.citicargasmobile.Entity.Transportador;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 
@@ -35,9 +39,20 @@ public class QRCodeFragment extends Fragment implements ZXingScannerView.ResultH
 
     @Override
     public void handleResult(Result rawResult) {
-        Toast.makeText(getActivity(), "Valor = " + rawResult.getText() +
-                ", Tipo de QR Code = " + rawResult.getBarcodeFormat().toString(), Toast.LENGTH_LONG).show();
-        mScannerView.startCamera();
+        TransportadorRepository repository = new TransportadorRepository(getActivity());
+        Transportador transportadorQR = repository.detalharTransportador(rawResult.getText());
+        DetalharTransportadorFragment result = new DetalharTransportadorFragment();
+        result.transportador = transportadorQR;
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment f = fragmentManager.findFragmentByTag("tag");
+        fragmentTransaction.replace(R.id.container, result,"tag");
+        if(f != null){
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        }
+        fragmentTransaction.commit();
     }
 
     @Override

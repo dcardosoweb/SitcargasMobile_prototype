@@ -12,6 +12,10 @@ public class Transportador implements Serializable{
     public String rntrc;
     public String cpfCnpj;
 
+    public Transportador(){
+    }
+
+
     public Transportador(String cpfCnpj, String rntrc, String nome, long id) {
         this.cpfCnpj = cpfCnpj;
         this.rntrc = rntrc;

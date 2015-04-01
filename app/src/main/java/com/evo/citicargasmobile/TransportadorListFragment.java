@@ -3,11 +3,14 @@ package com.evo.citicargasmobile;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.view.ActionMode;
 import android.util.SparseBooleanArray;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -62,9 +65,14 @@ public class TransportadorListFragment extends ListFragment   {
         DetalharTransportadorFragment result = new DetalharTransportadorFragment();
         result.transportador = transportadorSelecionado;
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, result)
-                .commit();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment f = fragmentManager.findFragmentByTag("tag");
+        fragmentTransaction.replace(R.id.container, result,"tag");
+        if(f != null){
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        }
+        fragmentTransaction.commit();
     }
 
     public void buscar() {
@@ -72,6 +80,7 @@ public class TransportadorListFragment extends ListFragment   {
         tAdapter = new TransportadorAdapter(getActivity(),mTransportadores);
         setListAdapter(tAdapter);
     }
+
 
 
 }

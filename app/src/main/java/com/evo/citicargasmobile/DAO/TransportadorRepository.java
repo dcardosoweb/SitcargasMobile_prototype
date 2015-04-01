@@ -83,4 +83,25 @@ public class TransportadorRepository {
         // return count
         return result;
     }
+
+    public Transportador detalharTransportador(String cpfCnpj){
+        String filterQuery = "SELECT  * FROM " + dbHelper.TABLE_NAME +" WHERE cpfCnpj='"+cpfCnpj+"'";
+        Transportador result = new Transportador();
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(filterQuery, null);
+
+        while(cursor.moveToNext()){
+            result.cpfCnpj = cursor.getString(cursor.getColumnIndex("cpfCnpj"));
+            result.rntrc = cursor.getString(cursor.getColumnIndex("rntrc"));
+            result.nome = cursor.getString(cursor.getColumnIndex("nome"));
+            result.id = cursor.getLong(cursor.getColumnIndex("_id"));
+        }
+
+        cursor.close();
+        dbHelper.close();
+
+        // return count
+        return result;
+    }
 }

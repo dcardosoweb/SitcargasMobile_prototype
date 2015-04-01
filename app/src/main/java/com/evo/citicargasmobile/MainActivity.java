@@ -1,11 +1,13 @@
 package com.evo.citicargasmobile;
 
 import android.app.Activity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -49,29 +51,36 @@ public class MainActivity extends ActionBarActivity
         // update the main content by replacing fragments
 
         Fragment fragment = null;
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
+        fragmentManager.popBackStack();
         switch (position) {
             case 0:
                 fragment = new ConsultarFragment();
                 mTitle = getString(R.string.title_section1);
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                fragmentTransaction.replace(R.id.container, fragment,"tag");
                 break;
             case 1:
                 fragment = new QRCodeFragment();
+                fragmentTransaction.replace(R.id.container, fragment);
                 mTitle = getString(R.string.title_section2);
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                fragmentTransaction.replace(R.id.container, fragment,"tag");
                 break;
             case 2:
                 fragment = new InserirFragment();
+                fragmentTransaction.replace(R.id.container, fragment);
                 mTitle = getString(R.string.title_section3);
                 break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
+                fragmentTransaction.replace(R.id.container, fragment);
                 break;
         }
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, fragment)
-                .commit();
+        fragmentTransaction.commit();
     }
 
     public void onSectionAttached(int number) {

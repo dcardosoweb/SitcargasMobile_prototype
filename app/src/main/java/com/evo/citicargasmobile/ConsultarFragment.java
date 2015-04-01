@@ -1,9 +1,11 @@
 package com.evo.citicargasmobile;
 
 
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,10 +71,17 @@ public class ConsultarFragment extends Fragment implements View.OnClickListener{
                 Transportador filter = new Transportador(txtCpfCnpj.getText().toString(), txtRntrc.getText().toString(), txtNome.getText().toString());
                 TransportadorListFragment result = new TransportadorListFragment();
                 result.transportadorFilter = filter;
+
+
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, result)
-                        .commit();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                Fragment f = fragmentManager.findFragmentByTag("tag");
+                fragmentTransaction.replace(R.id.container, result,"tag");
+                if(f != null){
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                }
+                fragmentTransaction.commit();
                 break;
         }
     }
@@ -80,4 +89,6 @@ public class ConsultarFragment extends Fragment implements View.OnClickListener{
     private List<Transportador> buscar(String nome, String cpfCnpj, String rntrc){
         return repository.consultarTransportadores(nome,cpfCnpj,rntrc);
     }
+
+
 }
