@@ -2,9 +2,10 @@
 <resources>
 
     <string name="app_name">Citi Cargas</string>
-    <string name="title_section1">Consultar</string>
-    <string name="title_section2">QR Code</string>
-    <string name="title_section3">Inserir</string>
+    <string name="title_section1">Home</string>
+    <string name="title_section2">Consultar</string>
+    <string name="title_section3">QR Code</string>
+    <string name="title_section4">Inserir</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>

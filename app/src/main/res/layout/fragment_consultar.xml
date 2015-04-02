@@ -17,14 +17,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/edtCpfCnpj"
         android:hint="CPF/CNPJ"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:inputType="numberSigned"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edtRntrc"
         android:hint="RNTRC"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:inputType="numberSigned"/>
 
 
     <LinearLayout android:layout_width="match_parent"

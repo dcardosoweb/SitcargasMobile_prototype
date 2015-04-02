@@ -17,6 +17,7 @@ import android.widget.ListView;
 import com.evo.citicargasmobile.Adapter.TransportadorAdapter;
 import com.evo.citicargasmobile.DAO.TransportadorRepository;
 import com.evo.citicargasmobile.Entity.Transportador;
+import com.evo.citicargasmobile.Helper.Formats;
 
 import java.util.List;
 
@@ -46,6 +47,8 @@ public class ConsultarFragment extends Fragment implements View.OnClickListener{
 
         Button btnConsultar = (Button) layout.findViewById(R.id.btnConsultar);
         Button btnLimpar = (Button) layout.findViewById(R.id.btnLimpar);
+
+        txtCpfCnpj.addTextChangedListener(Formats.FormatarCpfCnpj(txtCpfCnpj));
         btnConsultar.setOnClickListener(this);
         btnLimpar.setOnClickListener(this);
 
@@ -68,7 +71,7 @@ public class ConsultarFragment extends Fragment implements View.OnClickListener{
                 txtCpfCnpj.setText(null);
                 break;
             case R.id.btnConsultar:
-                Transportador filter = new Transportador(txtCpfCnpj.getText().toString(), txtRntrc.getText().toString(), txtNome.getText().toString());
+                Transportador filter = new Transportador(Formats.unmask(txtCpfCnpj.getText().toString()), txtRntrc.getText().toString(), txtNome.getText().toString());
                 TransportadorListFragment result = new TransportadorListFragment();
                 result.transportadorFilter = filter;
 

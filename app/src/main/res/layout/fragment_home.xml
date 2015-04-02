@@ -1,9 +1,16 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.evo.citicargasmobile.HomeFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.evo.citicargasmobile.HomeFragment"
+    android:orientation="vertical"
+    android:paddingTop="50dp">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+        android:text="NOTÍCIA TÉCNICA Nº 03/2014 - 20/08/2014"
+        android:textStyle="bold"/>
+
+
+</LinearLayout>

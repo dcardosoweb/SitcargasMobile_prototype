@@ -30,6 +30,10 @@ public class MainActivity extends ActionBarActivity
      */
     private CharSequence mTitle;
 
+    private void mudarTitle(String _title){
+        mTitle = _title;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,22 +61,27 @@ public class MainActivity extends ActionBarActivity
         fragmentManager.popBackStack();
         switch (position) {
             case 0:
-                fragment = new ConsultarFragment();
+                fragment = new HomeFragment();
                 mTitle = getString(R.string.title_section1);
-                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                fragmentTransaction.replace(R.id.container, fragment,"tag");
+                fragmentTransaction.replace(R.id.container, fragment);
                 break;
             case 1:
-                fragment = new QRCodeFragment();
-                fragmentTransaction.replace(R.id.container, fragment);
+                fragment = new ConsultarFragment();
                 mTitle = getString(R.string.title_section2);
                 fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 fragmentTransaction.replace(R.id.container, fragment,"tag");
                 break;
             case 2:
-                fragment = new InserirFragment();
+                fragment = new QRCodeFragment();
                 fragmentTransaction.replace(R.id.container, fragment);
                 mTitle = getString(R.string.title_section3);
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                fragmentTransaction.replace(R.id.container, fragment,"tag");
+                break;
+            case 3:
+                fragment = new InserirFragment();
+                fragmentTransaction.replace(R.id.container, fragment);
+                mTitle = getString(R.string.title_section4);
                 break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
@@ -93,6 +102,9 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 3:
                 mTitle = getString(R.string.title_section3);
+                break;
+            case 4:
+                mTitle = getString(R.string.title_section4);
                 break;
         }
     }

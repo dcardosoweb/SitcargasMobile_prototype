@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.evo.citicargasmobile.DAO.TransportadorRepository;
 import com.evo.citicargasmobile.Entity.Transportador;
+import com.evo.citicargasmobile.Helper.Formats;
+import com.evo.citicargasmobile.Helper.Validations;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 
@@ -39,20 +41,28 @@ public class QRCodeFragment extends Fragment implements ZXingScannerView.ResultH
 
     @Override
     public void handleResult(Result rawResult) {
-        TransportadorRepository repository = new TransportadorRepository(getActivity());
-        Transportador transportadorQR = repository.detalharTransportador(rawResult.getText());
-        DetalharTransportadorFragment result = new DetalharTransportadorFragment();
-        result.transportador = transportadorQR;
 
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Fragment f = fragmentManager.findFragmentByTag("tag");
-        fragmentTransaction.replace(R.id.container, result,"tag");
-        if(f != null){
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        if(Validations.ValidarCpfCnpj(Formats.unmask(rawResult.getText())))
+        {
+            TransportadorRepository repository = new TransportadorRepository(getActivity());
+            Transportador transportadorQR = repository.detalharTransportador(rawResult.getText());
+            DetalharTransportadorFragment result = new DetalharTransportadorFragment();
+            result.transportador = transportadorQR;
+
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            Fragment f = fragmentManager.findFragmentByTag("tag");
+            fragmentTransaction.replace(R.id.container, result, "tag");
+            if (f != null) {
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            }
+            fragmentTransaction.commit();
+        }else{
+            Toast.makeText(getActivity(), " O QRCode apresentado não pertence um CPF/CNPJ válido", Toast.LENGTH_LONG).show();
+            mScannerView.startCamera();
         }
-        fragmentTransaction.commit();
+
     }
 
     @Override
