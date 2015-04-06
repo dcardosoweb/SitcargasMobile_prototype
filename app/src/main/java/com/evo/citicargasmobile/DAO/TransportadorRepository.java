@@ -15,11 +15,11 @@ import java.util.List;
  */
 public class TransportadorRepository {
 
-    private CitiCargasSqlHelper dbHelper;
+    private TransportadorSqlHelper dbHelper;
     private SQLiteDatabase database;
 
     public TransportadorRepository(Context context){
-        dbHelper = new CitiCargasSqlHelper(context);
+        dbHelper = new TransportadorSqlHelper(context);
         database = dbHelper.getWritableDatabase();
     }
 
@@ -40,15 +40,25 @@ public class TransportadorRepository {
         cv.put("nome", transportador.nome);
         cv.put("rntrc", transportador.rntrc);
         cv.put("cpfCnpj", transportador.cpfCnpj);
+        cv.put("tipoTransportador",transportador.tipoTransportador);
+        cv.put("dataValidade",transportador.dataValidade);
+        cv.put("dataRecadastramento",transportador.dataRecadastramento);
+        cv.put("dataEmissao",transportador.dataEmissao);
+        cv.put("situacaoRntrc",transportador.situacaoRntrc);
+        cv.put("sexo",transportador.sexo);
+        cv.put("uf",transportador.uf);
+        cv.put("numeroIdentidade",transportador.numeroIdentidade);
+        cv.put("orgaoIdentidade",transportador.orgaoIdentidade);
+        cv.put("cnh",transportador.cnh);
+        cv.put("categoriaCnh",transportador.categoriaCnh);
+        cv.put("dataNascimento",transportador.dataNascimento);
 
         long id = db.insert(dbHelper.TABLE_NAME,null, cv);
-
         return id;
-
     }
 
     public List<Transportador> consultarTransportadores(String nome, String rntrc, String cpfCnpj) {
-        String filterQuery = "SELECT  * FROM " + dbHelper.TABLE_NAME +" WHERE 1=1 ";
+        String filterQuery = "SELECT  _id, nome, rntrc, cpfCnpj, tipoTransportador, uf, situacaoRntrc FROM " + dbHelper.TABLE_NAME +" WHERE 1=1 ";
 
         if(nome != null && !nome.isEmpty()){
             filterQuery += " and nome LIKE '%"+nome+"%'";
@@ -70,10 +80,13 @@ public class TransportadorRepository {
 
         while(cursor.moveToNext()){
             result.add(new Transportador(
-                    cursor.getString(cursor.getColumnIndex("cpfCnpj")),
-                    cursor.getString(cursor.getColumnIndex("rntrc")),
+                    cursor.getLong(cursor.getColumnIndex("_id")),
                     cursor.getString(cursor.getColumnIndex("nome")),
-                    cursor.getLong(cursor.getColumnIndex("_id"))
+                    cursor.getString(cursor.getColumnIndex("rntrc")),
+                    cursor.getString(cursor.getColumnIndex("cpfCnpj")),
+                    cursor.getString(cursor.getColumnIndex("tipoTransportador")),
+                    cursor.getString(cursor.getColumnIndex("uf")),
+                    cursor.getString(cursor.getColumnIndex("situacaoRntrc"))
             ));
         }
 
@@ -92,10 +105,22 @@ public class TransportadorRepository {
         Cursor cursor = db.rawQuery(filterQuery, null);
 
         while(cursor.moveToNext()){
-            result.cpfCnpj = cursor.getString(cursor.getColumnIndex("cpfCnpj"));
-            result.rntrc = cursor.getString(cursor.getColumnIndex("rntrc"));
-            result.nome = cursor.getString(cursor.getColumnIndex("nome"));
             result.id = cursor.getLong(cursor.getColumnIndex("_id"));
+            result.nome = cursor.getString(cursor.getColumnIndex("nome"));
+            result.rntrc = cursor.getString(cursor.getColumnIndex("rntrc"));
+            result.cpfCnpj = cursor.getString(cursor.getColumnIndex("cpfCnpj"));
+            result.tipoTransportador = cursor.getString(cursor.getColumnIndex("tipoTransportador"));
+            result.dataValidade = cursor.getString(cursor.getColumnIndex("dataValidade"));
+            result.dataRecadastramento = cursor.getString(cursor.getColumnIndex("dataRecadastramento"));
+            result.dataEmissao = cursor.getString(cursor.getColumnIndex("dataEmissao"));
+            result.situacaoRntrc = cursor.getString(cursor.getColumnIndex("situacaoRntrc"));
+            result.sexo = cursor.getString(cursor.getColumnIndex("sexo"));
+            result.uf = cursor.getString(cursor.getColumnIndex("uf"));
+            result.numeroIdentidade = cursor.getString(cursor.getColumnIndex("numeroIdentidade"));
+            result.orgaoIdentidade = cursor.getString(cursor.getColumnIndex("orgaoIdentidade"));
+            result.cnh = cursor.getString(cursor.getColumnIndex("cnh"));
+            result.categoriaCnh = cursor.getString(cursor.getColumnIndex("categoriaCnh"));
+            result.dataNascimento = cursor.getString(cursor.getColumnIndex("dataNascimento"));
         }
 
         cursor.close();

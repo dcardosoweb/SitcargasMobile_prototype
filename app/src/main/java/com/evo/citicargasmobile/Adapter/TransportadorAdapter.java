@@ -49,10 +49,16 @@ public class TransportadorAdapter extends BaseAdapter {
         TextView txtNome = (TextView) linha.findViewById(R.id.txtxNomeVal);
         TextView txtRntrc = (TextView) linha.findViewById(R.id.txtxRntrcVal);
         TextView txtCpfCnpj = (TextView) linha.findViewById(R.id.txtxCpfCnpjVal);
+        TextView txtUf = (TextView) linha.findViewById(R.id.txtxUfVal);
+        TextView txtSituacao = (TextView) linha.findViewById(R.id.txtxSituacaoVal);
+        TextView txtTipo = (TextView) linha.findViewById(R.id.txtxTipoVal);
 
         txtNome.setText(transportador.nome);
         txtRntrc.setText(transportador.rntrc);
         txtCpfCnpj.setText(transportador.cpfCnpj);
+        txtUf.setText(transportador.uf);
+        txtSituacao.setText(transportador.situacaoRntrc);
+        txtTipo.setText(transportador.tipoTransportador);
 
         return linha;
     }

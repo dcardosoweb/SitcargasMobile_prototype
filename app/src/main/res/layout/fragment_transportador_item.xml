@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:stretchColumns="2,4">
     <TableRow>
         <TextView
             android:layout_width="match_parent"
@@ -12,6 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_span="3"
             android:id="@+id/txtxNomeVal" />
     </TableRow>
 
@@ -19,15 +21,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RNTRC: "
+            android:text="UF: "
             android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtxRntrcVal" />
-    </TableRow>
-
-    <TableRow>
+            android:id="@+id/txtxUfVal" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,6 +37,39 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtxCpfCnpjVal" />
     </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SITUAÇÃO: "
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtxSituacaoVal" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RNTRC: "
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtxRntrcVal" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TIPO: "
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtxTipoVal" />
+    </TableRow>
+
 
 
 </TableLayout>

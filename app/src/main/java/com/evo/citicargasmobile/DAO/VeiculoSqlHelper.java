@@ -6,21 +6,21 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /**
- * Created by Daniel on 23/03/2015.
+ * Created by Daniel on 05/04/2015.
  */
-public class CitiCargasSqlHelper extends SQLiteOpenHelper {
+public class VeiculoSqlHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "dbCitiCargas";
     private static final int DATABASE_VERSION = 1;
 
-
-    public static final String TABLE_NAME = "Transportador";
+    public static final String TABLE_NAME = "Veiculo";
 
     private static final String DATABASE_CREATE =
-            "create table "+TABLE_NAME+" ( _id integer primary key,nome text not null, rntrc text not null, cpfCnpj text not null);";
+            "create table "+TABLE_NAME+" ( _id integer primary key, _idTransportador integer, placa text not null, renavam text not null," +
+                    " marca text not null, anoFabricacao text, propriedade text," +
+                    "FOREIGN KEY(_idTransportador) REFERENCES Transportador(_id));";
 
-
-    public CitiCargasSqlHelper(Context context) {
+    public VeiculoSqlHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -31,10 +31,10 @@ public class CitiCargasSqlHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        Log.w(CitiCargasSqlHelper.class.getName(),
+        Log.w(TransportadorSqlHelper.class.getName(),
                 "Upgrading database from version " + oldVersion + " to "
                         + newVersion + ", which will destroy all old data");
-        db.execSQL("DROP TABLE IF EXISTS Transportador");
+        db.execSQL("DROP TABLE IF EXISTS Veiculo");
         onCreate(db);
     }
 }
