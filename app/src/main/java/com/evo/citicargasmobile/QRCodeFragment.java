@@ -46,7 +46,7 @@ public class QRCodeFragment extends Fragment implements ZXingScannerView.ResultH
         {
             TransportadorRepository repository = new TransportadorRepository(getActivity());
             Transportador transportadorQR = repository.detalharTransportador(rawResult.getText());
-            DetalharTransportadorFragment result = new DetalharTransportadorFragment();
+            DadosTransportadorFragment result = new DadosTransportadorFragment();
             result.transportador = transportadorQR;
 
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();

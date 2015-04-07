@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.evo.citicargasmobile.DAO.TransportadorRepository;
 import com.evo.citicargasmobile.Entity.Transportador;
 
 
@@ -18,7 +19,7 @@ public class DetalharTransportadorFragment extends Fragment {
     TextView mTextCpfCnpj;
     TextView mTextSituacao;
     TextView mTextTipo;
-
+    TransportadorRepository repository;
 
 
     public DetalharTransportadorFragment() {
@@ -31,12 +32,31 @@ public class DetalharTransportadorFragment extends Fragment {
 
     }
 
+    public static DetalharTransportadorFragment novaInstancia(
+            String cpfCnpj) {
+
+        Bundle params = new Bundle();
+        params.putString("CPF_CNPJ", cpfCnpj);
+        DetalharTransportadorFragment dtf = new DetalharTransportadorFragment();
+        dtf.setArguments(params);
+        return dtf;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstance){
+        super.onCreate(savedInstance);
+        repository = new TransportadorRepository(getActivity());
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View layout = inflater.inflate(R.layout.fragment_detalhar_transportador, container, false);
+        Bundle params = getArguments();
+        repository = new TransportadorRepository(getActivity());
+        transportador = repository.detalharTransportador(params.getString("CPF_CNPJ"));
 
+        View layout = inflater.inflate(R.layout.fragment_detalhar_transportador, container, false);
         mTextNome = (TextView) layout.findViewById(R.id.txtNome);
         mTextCpfCnpj = (TextView) layout.findViewById(R.id.txtCpfCnpj);
         mTextRntrc = (TextView) layout.findViewById(R.id.txtRntrc);

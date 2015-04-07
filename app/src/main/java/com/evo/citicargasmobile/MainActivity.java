@@ -83,6 +83,11 @@ public class MainActivity extends ActionBarActivity
                 fragmentTransaction.replace(R.id.container, fragment);
                 mTitle = getString(R.string.title_section4);
                 break;
+            case 4:
+                fragment = new InserirVeiculoFragment();
+                fragmentTransaction.replace(R.id.container, fragment);
+                mTitle = getString(R.string.title_section5);
+                break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
                 fragmentTransaction.replace(R.id.container, fragment);
@@ -105,6 +110,9 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 4:
                 mTitle = getString(R.string.title_section4);
+                break;
+            case 5:
+                mTitle = getString(R.string.title_section5);
                 break;
         }
     }

@@ -6,6 +6,7 @@
     <string name="title_section2">Consultar</string>
     <string name="title_section3">QR Code</string>
     <string name="title_section4">Inserir</string>
+    <string name="title_section5">Veiculo</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
@@ -20,4 +21,8 @@
     <string name="choose_formats">Choose Formats</string>
     <string name="ok_button">OK</string>
     <string name="cancel_button">Cancel</string>
+    <string-array name="secoes">
+        <item>Transportador</item>
+        <item>Veículo(s)</item>
+    </string-array>
 </resources>

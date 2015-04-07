@@ -21,6 +21,7 @@ public class TransportadorAdapter extends BaseAdapter {
     Context ctx;
     List<Transportador> transportadores;
 
+
     public TransportadorAdapter(Context ctx, List<Transportador> transportadores) {
         this.ctx = ctx;
         this.transportadores = transportadores;

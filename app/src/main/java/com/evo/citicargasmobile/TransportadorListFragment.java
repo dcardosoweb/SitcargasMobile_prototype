@@ -1,29 +1,16 @@
 package com.evo.citicargasmobile;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.view.ActionMode;
-import android.util.SparseBooleanArray;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.evo.citicargasmobile.Adapter.TransportadorAdapter;
 import com.evo.citicargasmobile.DAO.TransportadorRepository;
 import com.evo.citicargasmobile.Entity.Transportador;
-
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -31,8 +18,6 @@ public class TransportadorListFragment extends ListFragment   {
 
     ListView mListView;
     List<Transportador> mTransportadores;
-    ArrayAdapter<Transportador> mAdapter;
-    ActionMode mActionMode;
     TransportadorRepository mRepositorio;
     Transportador transportadorFilter;
     TransportadorAdapter tAdapter;
@@ -62,7 +47,7 @@ public class TransportadorListFragment extends ListFragment   {
         super.onListItemClick(l, v, position, id);
 
         Transportador transportadorSelecionado = (Transportador) l.getItemAtPosition(position);
-        DetalharTransportadorFragment result = new DetalharTransportadorFragment();
+        DadosTransportadorFragment result = new DadosTransportadorFragment();
         result.transportador = transportadorSelecionado;
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

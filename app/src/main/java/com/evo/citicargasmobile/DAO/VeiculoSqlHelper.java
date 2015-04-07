@@ -10,8 +10,8 @@ import android.util.Log;
  */
 public class VeiculoSqlHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "dbCitiCargas";
-    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "dbCitiCargasVeiculo";
+    private static final int DATABASE_VERSION = 2;
 
     public static final String TABLE_NAME = "Veiculo";
 
