@@ -9,7 +9,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="PLACA: "
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:gravity="right"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="RENAVAM: "
+            android:gravity="right"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
@@ -31,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="MARCA: "
+            android:gravity="right"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
@@ -42,7 +45,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ANO FABRICAÇÃO: "
+            android:text="ANO: "
+            android:gravity="right"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
@@ -52,6 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="PROPRIEDADE: "
+            android:gravity="right"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"

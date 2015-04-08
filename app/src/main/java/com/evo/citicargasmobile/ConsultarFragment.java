@@ -75,7 +75,6 @@ public class ConsultarFragment extends Fragment implements View.OnClickListener{
                 TransportadorListFragment result = new TransportadorListFragment();
                 result.transportadorFilter = filter;
 
-
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment f = fragmentManager.findFragmentByTag("tag");

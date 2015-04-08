@@ -11,7 +11,7 @@ import android.util.Log;
 public class TransportadorSqlHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "dbCitiCargas";
-    private static final int DATABASE_VERSION =3;
+    private static final int DATABASE_VERSION =1;
 
     public static final String TABLE_NAME = "Transportador";
     public static final String TABLE_NAME_VEICULO = "Veiculo";
@@ -27,13 +27,13 @@ public class TransportadorSqlHelper extends SQLiteOpenHelper {
                     "dataRecadastramento text," +
                     "dataEmissao text, " +
                     "situacaoRntrc text, " +
-                    "sexo text, " +
                     "uf text, " +
-                    "numeroIdentidade text," +
-                    " orgaoIdentidade text, " +
-                    "cnh text, " +
-                    "categoriaCnh text, " +
-                    "dataNascimento text);";
+                    "contatoCelular text, " +
+                    "contatoEmail text, " +
+                    "contatoFixo text, " +
+                    "contatoFax text, " +
+                    "enderecoComercial text, " +
+                    "enderecoCorrespondencia text);";
 
     private static final String DATABASE_CREATE_VEICULO =
             "create table "+TABLE_NAME_VEICULO+" ( _id integer primary key, _idTransportador integer, placa text not null, renavam text not null," +

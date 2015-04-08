@@ -44,13 +44,6 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edtSexo"
-        android:hint="Sexo"
-        android:layout_marginTop="20dp"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/edtUf"
         android:hint="Uf"
         android:layout_marginTop="20dp"/>
@@ -58,35 +51,42 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edtNumeroIdentidade"
-        android:hint="Número Identidade"
+        android:id="@+id/edtContatoCelular"
+        android:hint="Contato Celular"
         android:layout_marginTop="20dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edtOrgaoIdentidade"
-        android:hint="Orgão Identidade"
+        android:id="@+id/edtContatoEmail"
+        android:hint="Contato Email"
         android:layout_marginTop="20dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edtCnh"
-        android:hint="CNH"
+        android:id="@+id/edtContatoFixo"
+        android:hint="Contato Fixo"
         android:layout_marginTop="20dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edtCategoriaCnh"
-        android:hint="Categoria CNH"
+        android:id="@+id/edtContatoFax"
+        android:hint="Contato Fax"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtEnderecoComercial"
+        android:hint="Endereço Comercial"
         android:layout_marginTop="20dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edtDataNascimento"
-        android:hint="DataNascimento"
+        android:id="@+id/edtEnderecoCorrespondencia"
+        android:hint="Endereço Correspondencia"
         android:layout_marginTop="20dp"/>
     <EditText
         android:layout_width="match_parent"

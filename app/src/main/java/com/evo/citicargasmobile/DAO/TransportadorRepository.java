@@ -45,13 +45,13 @@ public class TransportadorRepository {
         cv.put("dataRecadastramento",transportador.dataRecadastramento);
         cv.put("dataEmissao",transportador.dataEmissao);
         cv.put("situacaoRntrc",transportador.situacaoRntrc);
-        cv.put("sexo",transportador.sexo);
         cv.put("uf",transportador.uf);
-        cv.put("numeroIdentidade",transportador.numeroIdentidade);
-        cv.put("orgaoIdentidade",transportador.orgaoIdentidade);
-        cv.put("cnh",transportador.cnh);
-        cv.put("categoriaCnh",transportador.categoriaCnh);
-        cv.put("dataNascimento",transportador.dataNascimento);
+        cv.put("contatoCelular",transportador.contatoCelular);
+        cv.put("contatoEmail",transportador.contatoEmail);
+        cv.put("contatoFixo",transportador.contatoFixo);
+        cv.put("contatoFax",transportador.contatoFax);
+        cv.put("enderecoComercial",transportador.enderecoComercial);
+        cv.put("enderecoCorrespondencia",transportador.enderecoCorrespondencia);
 
         long id = db.insert(dbHelper.TABLE_NAME,null, cv);
         return id;
@@ -114,19 +114,18 @@ public class TransportadorRepository {
             result.dataRecadastramento = cursor.getString(cursor.getColumnIndex("dataRecadastramento"));
             result.dataEmissao = cursor.getString(cursor.getColumnIndex("dataEmissao"));
             result.situacaoRntrc = cursor.getString(cursor.getColumnIndex("situacaoRntrc"));
-            result.sexo = cursor.getString(cursor.getColumnIndex("sexo"));
             result.uf = cursor.getString(cursor.getColumnIndex("uf"));
-            result.numeroIdentidade = cursor.getString(cursor.getColumnIndex("numeroIdentidade"));
-            result.orgaoIdentidade = cursor.getString(cursor.getColumnIndex("orgaoIdentidade"));
-            result.cnh = cursor.getString(cursor.getColumnIndex("cnh"));
-            result.categoriaCnh = cursor.getString(cursor.getColumnIndex("categoriaCnh"));
-            result.dataNascimento = cursor.getString(cursor.getColumnIndex("dataNascimento"));
+            result.contatoCelular = cursor.getString(cursor.getColumnIndex("contatoCelular"));
+            result.contatoEmail = cursor.getString(cursor.getColumnIndex("contatoEmail"));
+            result.contatoFixo = cursor.getString(cursor.getColumnIndex("contatoFixo"));
+            result.contatoFax = cursor.getString(cursor.getColumnIndex("contatoFax"));
+            result.enderecoComercial = cursor.getString(cursor.getColumnIndex("enderecoComercial"));
+            result.enderecoCorrespondencia = cursor.getString(cursor.getColumnIndex("enderecoCorrespondencia"));
         }
 
         cursor.close();
         dbHelper.close();
 
-        // return count
         return result;
     }
 }

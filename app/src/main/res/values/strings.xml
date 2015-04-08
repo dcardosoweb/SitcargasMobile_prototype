@@ -25,4 +25,12 @@
         <item>Transportador</item>
         <item>Veículo(s)</item>
     </string-array>
+    <plurals name="texto_rodape">
+        <item quantity="one">1 transportador</item>
+        <item quantity="other">%d transportadores</item>
+    </plurals>
+    <plurals name="texto_rodape_veiculo">
+        <item quantity="one">1 veículo</item>
+        <item quantity="other">%d veículos</item>
+    </plurals>
 </resources>

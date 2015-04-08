@@ -9,6 +9,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="NOME: "
+            android:gravity="right"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
@@ -22,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="UF: "
+            android:gravity="right"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
@@ -31,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CPF/CNPJ: "
+            android:gravity="right"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
@@ -43,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SITUAÇÃO: "
+            android:gravity="right"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
@@ -52,6 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="RNTRC: "
+            android:gravity="right"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
@@ -63,11 +68,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TIPO: "
+            android:gravity="right"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtxTipoVal" />
+            android:id="@+id/txtxTipoVal"
+            android:layout_span="3"/>
     </TableRow>
 
 

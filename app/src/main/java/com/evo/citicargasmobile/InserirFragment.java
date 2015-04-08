@@ -26,13 +26,14 @@ public class InserirFragment extends Fragment implements View.OnClickListener{
     EditText txtDataValidade;
     EditText txtDataRecadastramento;
     EditText txtDataEmissao;
-    EditText txtSexo;
     EditText txtUf;
-    EditText txtNumeroIdentidade;
-    EditText txtOrgaoIdentidade;
-    EditText txtCnh;
-    EditText txtCategoriaCnh;
-    EditText txtDataNascimento;
+    EditText txtContatoCelular;
+    EditText txtContatoEmail;
+    EditText txtContatoFixo;
+    EditText txtContatoFax;
+    EditText txtEnderecoComercial;
+    EditText txtEnderecoCorrespondencia;
+
 
     TransportadorRepository repository;
 
@@ -54,13 +55,13 @@ public class InserirFragment extends Fragment implements View.OnClickListener{
         txtDataValidade= (EditText) layout.findViewById(R.id.edtDataValidade);
         txtDataRecadastramento= (EditText) layout.findViewById(R.id.edtDataRecadastramento);
         txtDataEmissao= (EditText) layout.findViewById(R.id.edtDataEmissao);
-        txtSexo= (EditText) layout.findViewById(R.id.edtSexo);
         txtUf= (EditText) layout.findViewById(R.id.edtUf);
-        txtNumeroIdentidade= (EditText) layout.findViewById(R.id.edtNumeroIdentidade);
-        txtOrgaoIdentidade= (EditText) layout.findViewById(R.id.edtOrgaoIdentidade);
-        txtCnh= (EditText) layout.findViewById(R.id.edtCnh);
-        txtCategoriaCnh= (EditText) layout.findViewById(R.id.edtCategoriaCnh);
-        txtDataNascimento= (EditText) layout.findViewById(R.id.edtDataNascimento);
+        txtContatoCelular= (EditText) layout.findViewById(R.id.edtContatoCelular);
+        txtContatoEmail= (EditText) layout.findViewById(R.id.edtContatoEmail);
+        txtContatoFixo= (EditText) layout.findViewById(R.id.edtContatoFixo);
+        txtContatoFax= (EditText) layout.findViewById(R.id.edtContatoFax);
+        txtEnderecoComercial= (EditText) layout.findViewById(R.id.edtEnderecoComercial);
+        txtEnderecoCorrespondencia= (EditText) layout.findViewById(R.id.edtEnderecoCorrespondencia);
 
         Button btnInserir = (Button) layout.findViewById(R.id.btnInserir);
         Button btnLimpar = (Button) layout.findViewById(R.id.btnLimpar);
@@ -92,13 +93,13 @@ public class InserirFragment extends Fragment implements View.OnClickListener{
                         txtDataValidade.getText().toString(),
                         txtDataRecadastramento.getText().toString(),
                         txtDataEmissao.getText().toString(),
-                        txtSexo.getText().toString(),
                         txtUf.getText().toString(),
-                        txtNumeroIdentidade.getText().toString(),
-                        txtOrgaoIdentidade.getText().toString(),
-                        txtCnh.getText().toString(),
-                        txtCategoriaCnh.getText().toString(),
-                        txtDataNascimento.getText().toString()
+                        txtContatoCelular.getText().toString(),
+                        txtContatoEmail.getText().toString(),
+                        txtContatoFixo.getText().toString(),
+                        txtContatoFax.getText().toString(),
+                        txtEnderecoComercial.getText().toString(),
+                        txtEnderecoCorrespondencia.getText().toString()
                 );
                 Toast.makeText(this.getActivity(), "Transportador cadastrado ID -"+ String.valueOf(id),Toast.LENGTH_LONG).show();
                 limparCampos();
@@ -110,17 +111,31 @@ public class InserirFragment extends Fragment implements View.OnClickListener{
             String nome,
             String cpfCnpj,
             String rntrc,String tipoTransportador,String situacaoRntrc, String dataValidade, String dataRecadastramento,
-            String dataEmissao, String sexo, String uf, String numeroIdentidade, String orgaoIdentidade,
-            String cnh, String categoriaCnh, String dataNascimento){
+            String dataEmissao, String uf, String contatoCelular,  String contatoEmail, String contatoFixo,
+            String contatoFax, String enderecoComercial, String enderecoCorrespondencia){
         Transportador dto = new Transportador(nome,rntrc,cpfCnpj,tipoTransportador,
-                dataValidade,dataRecadastramento,dataEmissao,situacaoRntrc,sexo,uf,numeroIdentidade,
-                orgaoIdentidade,cnh,categoriaCnh,dataNascimento);
+                dataValidade,dataRecadastramento,dataEmissao,situacaoRntrc,uf, contatoCelular, contatoEmail,
+                contatoFixo,contatoFax,enderecoComercial,enderecoCorrespondencia);
         return repository.inserir(dto);
     }
+
+
 
     private void limparCampos(){
         txtNome.setText(null);
         txtRntrc.setText(null);
         txtCpfCnpj.setText(null);
+        txtTipo.setText(null);
+        txtSituacao.setText(null);
+        txtDataValidade.setText(null);
+        txtDataRecadastramento.setText(null);
+        txtDataEmissao.setText(null);
+        txtUf.setText(null);
+        txtContatoCelular.setText(null);
+        txtContatoEmail.setText(null);
+        txtContatoFixo.setText(null);
+        txtContatoFax.setText(null);
+        txtEnderecoComercial.setText(null);
+        txtEnderecoCorrespondencia.setText(null);
     }
 }

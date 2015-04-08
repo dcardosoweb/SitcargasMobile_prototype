@@ -2,6 +2,7 @@ package com.evo.citicargasmobile.Adapter;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +62,9 @@ public class TransportadorAdapter extends BaseAdapter {
         txtSituacao.setText(transportador.situacaoRntrc);
         txtTipo.setText(transportador.tipoTransportador);
 
+        if(position%2==1){
+            linha.setBackgroundColor(Color.GRAY);
+        }
         return linha;
     }
 }

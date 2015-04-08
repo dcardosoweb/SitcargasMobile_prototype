@@ -1,78 +1,261 @@
+
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.evo.citicargasmobile.DetalharTransportadorFragment"
     android:padding="16dp"
-    android:stretchColumns="1,2">
+    android:stretchColumns="1,3">
 
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dados Transportador"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_span="4"
+            android:background="@color/highlighted_text_material_light"
+            />
+    </TableRow>
     <TableRow>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nome:"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:gravity="right"
+            />
         <TextView
-            android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtNome"
             android:layout_span="3"
+            android:layout_marginLeft="10dp"
             />
     </TableRow>
-
-    <TableRow>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="RNTRC:"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtRntrc"
-            />
-    </TableRow>
-
     <TableRow>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CPF/CNPJ:"
             android:textStyle="bold"
+            android:id="@+id/txtCpfCnpjLabel"
+            android:gravity="right"
             />
         <TextView
-            android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtCpfCnpj"
+            android:layout_marginLeft="10dp"
             />
-    </TableRow>
 
-    <TableRow>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tipo:"
             android:textStyle="bold"
+            android:gravity="right"
             />
         <TextView
-            android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtTipo"
+            android:layout_marginLeft="10dp"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RNTRC:"
+            android:textStyle="bold"
+            android:gravity="right"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtRntrc"
+            android:layout_marginLeft="10dp"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Situação:"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="right"/>
         <TextView
-            android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtSituacao"
+            android:layout_marginLeft="10dp"
+            />
+    </TableRow>
+
+
+
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Emissão:"
+            android:textStyle="bold"
+            android:gravity="right"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtEmissao"
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recadast:"
+            android:textStyle="bold"
+            android:gravity="right"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtRecadastramento"
+            android:layout_marginLeft="10dp"
+            />
+
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Validade:"
+            android:textStyle="bold"
+            android:gravity="right"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtVencimento"
+            android:layout_marginLeft="10dp"
+            android:layout_span="3"
+            />
+    </TableRow>
+
+    <TableRow>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contatos"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_span="4"
+        android:background="@color/highlighted_text_material_light"
+        />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Celular:"
+            android:textStyle="bold"
+            android:gravity="right"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtCelular"
+            android:layout_marginLeft="10dp"
+            android:layout_span="3"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email:"
+            android:textStyle="bold"
+            android:gravity="right"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtEmail"
+            android:layout_marginLeft="10dp"
+            android:layout_span="3"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fixo:"
+            android:textStyle="bold"
+            android:gravity="right"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtFixo"
+            android:layout_marginLeft="10dp"
+            android:layout_span="3"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fax:"
+            android:textStyle="bold"
+            android:gravity="right"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtFax"
+            android:layout_marginLeft="10dp"
+            android:layout_span="3"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Endereços"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_span="4"
+            android:background="@color/highlighted_text_material_light"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comercial:"
+            android:textStyle="bold"
+            android:gravity="right"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtComercial"
+            android:layout_marginLeft="10dp"
+            android:layout_span="3"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Corresp:"
+            android:textStyle="bold"
+            android:gravity="right"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtCorrespondencia"
+            android:layout_marginLeft="10dp"
+            android:layout_span="3"
             />
     </TableRow>
 </TableLayout>

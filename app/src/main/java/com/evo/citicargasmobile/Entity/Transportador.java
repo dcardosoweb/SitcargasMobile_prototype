@@ -17,20 +17,21 @@ public class Transportador implements Serializable{
     public String dataRecadastramento;
     public String dataEmissao;
     public String situacaoRntrc;
-    public String sexo;
     public String uf;
-    public String numeroIdentidade;
-    public String orgaoIdentidade;
-    public String cnh;
-    public String categoriaCnh;
-    public String dataNascimento;
+
+    public String contatoCelular;
+    public String contatoEmail;
+    public String contatoFixo;
+    public String contatoFax;
+    public String enderecoComercial;
+    public String enderecoCorrespondencia;
+
 
     public Transportador(){
     }
 
-    public Transportador(long id, String nome, String rntrc, String cpfCnpj, String tipoTransportador, String dataValidade, String dataRecadastramento,
-                         String dataEmissao, String situacaoRntrc, String sexo, String uf, String numeroIdentidade, String orgaoIdentidade,
-                         String cnh, String categoriaCnh, String dataNascimento) {
+    public Transportador(long id, String nome, String rntrc, String cpfCnpj, String tipoTransportador, String dataValidade, String dataRecadastramento, String dataEmissao,
+                         String situacaoRntrc, String uf, String contatoCelular, String contatoEmail, String contatoFixo, String contatoFax, String enderecoComercial, String enderecoCorrespondencia) {
         this.id = id;
         this.nome = nome;
         this.rntrc = rntrc;
@@ -40,18 +41,17 @@ public class Transportador implements Serializable{
         this.dataRecadastramento = dataRecadastramento;
         this.dataEmissao = dataEmissao;
         this.situacaoRntrc = situacaoRntrc;
-        this.sexo = sexo;
         this.uf = uf;
-        this.numeroIdentidade = numeroIdentidade;
-        this.orgaoIdentidade = orgaoIdentidade;
-        this.cnh = cnh;
-        this.categoriaCnh = categoriaCnh;
-        this.dataNascimento = dataNascimento;
+        this.contatoCelular = contatoCelular;
+        this.contatoEmail = contatoEmail;
+        this.contatoFixo = contatoFixo;
+        this.contatoFax = contatoFax;
+        this.enderecoComercial = enderecoComercial;
+        this.enderecoCorrespondencia = enderecoCorrespondencia;
     }
 
-    public Transportador( String nome, String rntrc, String cpfCnpj, String tipoTransportador, String dataValidade, String dataRecadastramento,
-                          String dataEmissao, String situacaoRntrc, String sexo, String uf, String numeroIdentidade, String orgaoIdentidade,
-                         String cnh, String categoriaCnh, String dataNascimento) {
+    public Transportador(String nome, String rntrc, String cpfCnpj, String tipoTransportador, String dataValidade, String dataRecadastramento, String dataEmissao,
+                         String situacaoRntrc, String uf, String contatoCelular, String contatoEmail, String contatoFixo, String contatoFax, String enderecoComercial, String enderecoCorrespondencia) {
         this.nome = nome;
         this.rntrc = rntrc;
         this.cpfCnpj = cpfCnpj;
@@ -60,26 +60,13 @@ public class Transportador implements Serializable{
         this.dataRecadastramento = dataRecadastramento;
         this.dataEmissao = dataEmissao;
         this.situacaoRntrc = situacaoRntrc;
-        this.sexo = sexo;
         this.uf = uf;
-        this.numeroIdentidade = numeroIdentidade;
-        this.orgaoIdentidade = orgaoIdentidade;
-        this.cnh = cnh;
-        this.categoriaCnh = categoriaCnh;
-        this.dataNascimento = dataNascimento;
-    }
-
-    public Transportador(String cpfCnpj, String rntrc, String nome, long id) {
-        this.cpfCnpj = cpfCnpj;
-        this.rntrc = rntrc;
-        this.nome = nome;
-        this.id = id;
-    }
-
-    public Transportador(String cpfCnpj, String rntrc, String nome) {
-        this.cpfCnpj = cpfCnpj;
-        this.rntrc = rntrc;
-        this.nome = nome;
+        this.contatoCelular = contatoCelular;
+        this.contatoEmail = contatoEmail;
+        this.contatoFixo = contatoFixo;
+        this.contatoFax = contatoFax;
+        this.enderecoComercial = enderecoComercial;
+        this.enderecoCorrespondencia = enderecoCorrespondencia;
     }
 
     public Transportador(long id, String nome, String rntrc, String cpfCnpj, String tipoTransportador, String uf, String situacaoRntrc) {
@@ -90,6 +77,12 @@ public class Transportador implements Serializable{
         this.tipoTransportador = tipoTransportador;
         this.uf = uf;
         this.situacaoRntrc = situacaoRntrc;
+    }
+
+    public Transportador(String cpfCnpj, String rntrc, String nome) {
+        this.cpfCnpj = cpfCnpj;
+        this.rntrc = rntrc;
+        this.nome = nome;
     }
 
     @Override

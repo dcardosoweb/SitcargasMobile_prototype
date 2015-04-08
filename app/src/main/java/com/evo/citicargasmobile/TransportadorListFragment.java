@@ -1,12 +1,15 @@
 package com.evo.citicargasmobile;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.evo.citicargasmobile.Adapter.TransportadorAdapter;
 import com.evo.citicargasmobile.DAO.TransportadorRepository;
@@ -21,6 +24,7 @@ public class TransportadorListFragment extends ListFragment   {
     TransportadorRepository mRepositorio;
     Transportador transportadorFilter;
     TransportadorAdapter tAdapter;
+    final int PADDING = 8;
 
     public TransportadorListFragment() {
         // Required empty public constructor
@@ -40,6 +44,8 @@ public class TransportadorListFragment extends ListFragment   {
         mListView = getListView();
         mRepositorio = new TransportadorRepository(getActivity());
         buscar();
+        montarHeader();
+        montarFooter();
     }
 
     @Override
@@ -64,8 +70,30 @@ public class TransportadorListFragment extends ListFragment   {
         mTransportadores = mRepositorio.consultarTransportadores(transportadorFilter.nome, transportadorFilter.cpfCnpj, transportadorFilter.rntrc);
         tAdapter = new TransportadorAdapter(getActivity(),mTransportadores);
         setListAdapter(tAdapter);
+        setEmptyText("Nenhum transportador encontrado para o filtro informado");
     }
 
+    private void montarHeader()
+    {
+        TextView txtHeader = new TextView(getActivity());
+        txtHeader.setBackgroundColor(Color.GRAY);
+        txtHeader.setTextColor(Color.WHITE);
+        txtHeader.setText("Lista de Transportadores");
+        txtHeader.setPadding(PADDING, PADDING, 0, PADDING);
+        mListView.addHeaderView(txtHeader);
+    }
+
+    private void montarFooter(){
+        TextView txtFooter = new TextView(getActivity());
+        txtFooter.setText(getResources().getQuantityString(
+                R.plurals.texto_rodape,
+                tAdapter.getCount(),
+                tAdapter.getCount()));
+        txtFooter.setBackgroundColor(Color.LTGRAY);
+        txtFooter.setGravity(Gravity.RIGHT);
+        txtFooter.setPadding(0, PADDING, PADDING, PADDING);
+        mListView.addFooterView(txtFooter);
+    }
 
 
 }
