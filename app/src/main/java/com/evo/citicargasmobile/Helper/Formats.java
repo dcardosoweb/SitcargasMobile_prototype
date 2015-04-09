@@ -66,4 +66,34 @@ public abstract class Formats {
             public void afterTextChanged(Editable s) {}
         };
     }
+
+    public static String FormatarCpfCnpj(String cpfCnpj){
+        String str = unmask(cpfCnpj.toString());
+        String mascara = "";
+        String mask = "";
+
+        if(str.length() == 11)
+            mask = MASK_CPF;
+        else if(str.length() == 14)
+            mask = MASK_CNPJ;
+        else
+            return cpfCnpj;
+
+        int i = 0;
+        for (char m : mask.toCharArray()) {
+            if (m != '#') {
+                mascara += m;
+                continue;
+            }
+            try {
+                mascara += str.charAt(i);
+            } catch (Exception e) {
+                break;
+            }
+            i++;
+        }
+
+        return mascara;
+    }
+
 }

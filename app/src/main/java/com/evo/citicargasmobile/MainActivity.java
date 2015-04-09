@@ -58,23 +58,26 @@ public class MainActivity extends ActionBarActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
+        mTitle = "Citi Cargas";
+
+
         fragmentManager.popBackStack();
         switch (position) {
             case 0:
                 fragment = new HomeFragment();
-                mTitle = getString(R.string.title_section1);
+                //mTitle = getString(R.string.title_section1);
                 fragmentTransaction.replace(R.id.container, fragment);
                 break;
             case 1:
                 fragment = new ConsultarFragment();
-                mTitle = getString(R.string.title_section2);
+                //mTitle = getString(R.string.title_section2);
                 fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 fragmentTransaction.replace(R.id.container, fragment,"tag");
                 break;
             case 2:
                 fragment = new QRCodeFragment();
                 fragmentTransaction.replace(R.id.container, fragment);
-                mTitle = getString(R.string.title_section3);
+                //mTitle = getString(R.string.title_section3);
                 fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 fragmentTransaction.replace(R.id.container, fragment,"tag");
                 break;

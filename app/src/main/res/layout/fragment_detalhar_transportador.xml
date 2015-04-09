@@ -46,20 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtCpfCnpj"
-            android:layout_marginLeft="10dp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tipo:"
-            android:textStyle="bold"
-            android:gravity="right"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtTipo"
+			android:layout_span="3"
             android:layout_marginLeft="10dp"
             />
     </TableRow>
@@ -90,9 +77,6 @@
             android:layout_marginLeft="10dp"
             />
     </TableRow>
-
-
-
     <TableRow>
         <TextView
             android:layout_width="wrap_content"
@@ -110,21 +94,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recadast:"
-            android:textStyle="bold"
-            android:gravity="right"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtRecadastramento"
-            android:layout_marginLeft="10dp"
-            />
-
-    </TableRow>
-    <TableRow>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="Validade:"
             android:textStyle="bold"
             android:gravity="right"
@@ -133,8 +102,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtVencimento"
+            android:layout_marginLeft="10dp"            
+            />
+    </TableRow>
+    <TableRow>
+	<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recadast:"
+            android:textStyle="bold"
+            android:gravity="right"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtRecadastramento"
+            android:layout_marginLeft="10dp"			
+            />
+		<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo:"
+            android:textStyle="bold"
+            android:gravity="right"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtTipo"
             android:layout_marginLeft="10dp"
-            android:layout_span="3"
             />
     </TableRow>
 

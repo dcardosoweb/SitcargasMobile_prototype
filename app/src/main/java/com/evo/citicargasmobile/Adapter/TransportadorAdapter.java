@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.evo.citicargasmobile.Entity.Transportador;
+import com.evo.citicargasmobile.Helper.Formats;
 import com.evo.citicargasmobile.R;
 
 import java.util.List;
@@ -57,7 +58,7 @@ public class TransportadorAdapter extends BaseAdapter {
 
         txtNome.setText(transportador.nome);
         txtRntrc.setText(transportador.rntrc);
-        txtCpfCnpj.setText(transportador.cpfCnpj);
+        txtCpfCnpj.setText(Formats.FormatarCpfCnpj(transportador.cpfCnpj));
         txtUf.setText(transportador.uf);
         txtSituacao.setText(transportador.situacaoRntrc);
         txtTipo.setText(transportador.tipoTransportador);

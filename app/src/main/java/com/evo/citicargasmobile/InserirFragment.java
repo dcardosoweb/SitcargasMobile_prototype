@@ -84,7 +84,8 @@ public class InserirFragment extends Fragment implements View.OnClickListener{
                 limparCampos();
                 break;
             case R.id.btnInserir:
-                long id = salvar(
+                salvarCargaTransportador();
+                /*long id = salvar(
                         txtNome.getText().toString(),
                         txtCpfCnpj.getText().toString(),
                         txtRntrc.getText().toString(),
@@ -101,8 +102,7 @@ public class InserirFragment extends Fragment implements View.OnClickListener{
                         txtEnderecoComercial.getText().toString(),
                         txtEnderecoCorrespondencia.getText().toString()
                 );
-                Toast.makeText(this.getActivity(), "Transportador cadastrado ID -"+ String.valueOf(id),Toast.LENGTH_LONG).show();
-                limparCampos();
+                Toast.makeText(this.getActivity(), "Transportador cadastrado ID -"+ String.valueOf(id),Toast.LENGTH_SHORT).show();*/
                 break;
         }
     }
@@ -120,6 +120,12 @@ public class InserirFragment extends Fragment implements View.OnClickListener{
     }
 
 
+    private void salvarCargaTransportador(){
+        repository.inserir(inserirETC1());
+        repository.inserir(inserirCTC1());
+        repository.inserir(inserirTAC1());
+        repository.inserir(inserirETC2());
+    }
 
     private void limparCampos(){
         txtNome.setText(null);
@@ -137,5 +143,89 @@ public class InserirFragment extends Fragment implements View.OnClickListener{
         txtContatoFax.setText(null);
         txtEnderecoComercial.setText(null);
         txtEnderecoCorrespondencia.setText(null);
+    }
+
+    private Transportador inserirETC1()
+    {
+        return new Transportador(
+                "DIOGO DE OLIVEIRA PARREIRA FRANCA - ME",
+                "002943781",
+                "00645399000168",
+                "ETC",
+                "31/05/2015",
+                "04/03/2010",
+                "14/02/2005",
+                "ATIVO",
+                "SP",
+                null,
+                null,
+                "(64)4005-8800",
+                null,
+                "RODOVIA BR 060 KM 383,SETOR ALVORADA, Rio Verde",
+                null
+        );
+    }
+
+    private Transportador inserirETC2()
+    {
+        return new Transportador(
+                "C&A TEIXEIRINHA DE PADRA E PAPEL LTDA",
+                "002943781",
+                "00645399000168",
+                "ETC",
+                "31/03/2015",
+                "04/03/2010",
+                "14/02/2005",
+                "VENCIDO",
+                "SP",
+                null,
+                null,
+                "(11)4005-8800",
+                null,
+                "RODOVIA BR 060 KM 383,SETOR ALVORADA, Rio Verde",
+                null
+        );
+    }
+
+    private Transportador inserirCTC1()
+    {
+        return new Transportador(
+                "COOPERATIVA DE TRANSPORTES DE CARGAS",
+                "000244343",
+                "81800849000141",
+                "ETC",
+                "28/05/2015",
+                "04/03/2010",
+                "15/09/2004",
+                "ATIVO",
+                "AM",
+                "(49)93444-7000",
+                null,
+                "(49)4005-8800",
+                null,
+                "RUA MARECHAL DEODORO,Centro, Concórdia",
+                null
+        );
+    }
+
+    private Transportador inserirTAC1()
+    {
+        return new Transportador(
+                "DANIEL CARDOSO GONÇALVES",
+                "000244589",
+                "12044922711",
+                "TAC",
+                "28/05/2015",
+                "04/03/2010",
+                "15/09/2004",
+                "ATIVO",
+                "AM",
+                "(21)98449-1601",
+                "dcardoso.web@gmail.com",
+                null,
+                null,
+                "AV.Vicente de Carvalho, 1086, Vila Kosmos",
+                "AV.Vicente de Carvalho, 1086, Vila Kosmos"
+        );
     }
 }

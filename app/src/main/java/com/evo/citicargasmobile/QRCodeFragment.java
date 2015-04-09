@@ -45,12 +45,12 @@ public class QRCodeFragment extends Fragment implements ZXingScannerView.ResultH
         try
         {
             String qrCode = Formats.unmask(rawResult.getText());
-            if(soContemNumeros(qrCode) && Validations.ValidarCpfCnpj(qrCode))
+            if(qrCode != null && !qrCode.trim().isEmpty() && soContemNumeros(qrCode) && Validations.ValidarCpfCnpj(qrCode))
             {
                 TransportadorRepository repository = new TransportadorRepository(getActivity());
-                Transportador transportadorQR = repository.detalharTransportador(rawResult.getText());
+                Transportador transportadorQR = repository.detalharTransportador(qrCode);
 
-                if(transportadorQR == null)
+                if(transportadorQR.id <=0)
                 {
                     Toast.makeText(getActivity(), " O QRCode apresentado não pertence um CPF/CNPJ cadastrado", Toast.LENGTH_SHORT).show();
                     mScannerView.startCamera();

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.evo.citicargasmobile.DAO.TransportadorRepository;
 import com.evo.citicargasmobile.Entity.Transportador;
+import com.evo.citicargasmobile.Helper.Formats;
 
 
 public class DetalharTransportadorFragment extends Fragment {
@@ -90,7 +91,7 @@ public class DetalharTransportadorFragment extends Fragment {
 
         if(transportador != null){
             mTextNome.setText(transportador.nome);
-            mTextCpfCnpj.setText(transportador.cpfCnpj);
+            mTextCpfCnpj.setText(Formats.FormatarCpfCnpj(transportador.cpfCnpj));
             mTextRntrc.setText(transportador.rntrc);
             mTextTipo.setText(transportador.tipoTransportador);
             mTextSituacao.setText(transportador.situacaoRntrc);

@@ -81,7 +81,8 @@ public class InserirVeiculoFragment extends Fragment implements View.OnClickList
                 limparCampos();
                 break;
             case R.id.btnInserir:
-                long id = salvar(
+                salvarCarga();
+               /* long id = salvar(
                         Long.parseLong(txtIdTransportador.getText().toString()),
                         txtPlaca.getText().toString(),
                         txtRenavam.getText().toString(),
@@ -89,9 +90,144 @@ public class InserirVeiculoFragment extends Fragment implements View.OnClickList
                         txtAnoFabricacao.getText().toString(),
                         txtPropriedade.getText().toString()
                 );
-                Toast.makeText(this.getActivity(), "Veiculo cadastrado ID -" + String.valueOf(id), Toast.LENGTH_LONG).show();
-                limparCampos();
+                Toast.makeText(this.getActivity(), "Veiculo cadastrado ID -" + String.valueOf(id), Toast.LENGTH_SHORT).show();*/
                 break;
         }
+    }
+
+    private void salvarCarga(){
+        repository.inserir(veiculoCTC1());
+        repository.inserir(veiculoCTC2());
+        repository.inserir(veiculoCTC3());
+        repository.inserir(veiculoCTC4());
+        repository.inserir(veiculoTAC());
+        repository.inserir(veiculoETC1());
+        repository.inserir(veiculoETC2());
+        repository.inserir(veiculoETC3());
+        repository.inserir(veiculoETC4());
+        repository.inserir(veiculoETC5());
+        repository.inserir(veiculoETC6());
+
+    }
+
+    private Veiculo veiculoCTC1(){
+        return new Veiculo(
+                2,
+                "BCC-0360",
+                "678684090",
+                "FIAT",
+                "2008",
+                "Próprio"
+        );
+    }
+
+    private Veiculo veiculoCTC3(){
+        return new Veiculo(
+                2,
+                "ABC-0360",
+                "678684090",
+                "FIAT",
+                "2008",
+                "Próprio"
+        );
+    }
+
+    private Veiculo veiculoCTC2(){
+        return new Veiculo(
+                2,
+                "DEC-0859",
+                "678684090",
+                "FIAT",
+                "2004",
+                "Próprio"
+        );
+    }
+
+    private Veiculo veiculoCTC4(){
+        return new Veiculo(
+                2,
+                "GTC-0859",
+                "678684090",
+                "FIAT",
+                "2004",
+                "Próprio"
+        );
+    }
+
+    private Veiculo veiculoTAC(){
+        return new Veiculo(
+                3,
+                "KGB-1947",
+                "678684090",
+                "FIAT",
+                "1947",
+                "Próprio"
+        );
+    }
+
+    private Veiculo veiculoETC1(){
+        return new Veiculo(
+                4,
+                "KGB-1948",
+                "678884590",
+                "HONDA",
+                "1948",
+                "Próprio"
+        );
+    }
+
+    private Veiculo veiculoETC2(){
+        return new Veiculo(
+                4,
+                "TER-1234",
+                "677726090",
+                "HYUNDAI",
+                "1947",
+                "Leasing"
+        );
+    }
+
+    private Veiculo veiculoETC3(){
+        return new Veiculo(
+                4,
+                "ABC-4389",
+                "338484090",
+                "HYUNDAI",
+                "1998",
+                "Arrendado"
+        );
+    }
+
+    private Veiculo veiculoETC4(){
+        return new Veiculo(
+                4,
+                "IOP-1947",
+                "678684090",
+                "FORD",
+                "1965",
+                "Próprio"
+        );
+    }
+
+    private Veiculo veiculoETC5(){
+        return new Veiculo(
+                4,
+                "FGT-8745",
+                "678684090",
+                "HONDA",
+                "1987",
+                "Próprio"
+        );
+    }
+
+    private Veiculo veiculoETC6(){
+        return new Veiculo(
+                4,
+                "NJU-1951",
+                "678684090",
+                "FIAT",
+                "2010",
+                "Próprio"
+        );
     }
 }

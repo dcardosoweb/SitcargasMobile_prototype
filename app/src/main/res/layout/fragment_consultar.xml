@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edtNome"
+        android:maxLength="20"
         android:hint="Nome" />
 
     <EditText
@@ -18,6 +19,7 @@
         android:id="@+id/edtCpfCnpj"
         android:hint="CPF/CNPJ"
         android:layout_marginTop="20dp"
+        android:maxLength="18"
         android:inputType="numberSigned"/>
 
     <EditText
@@ -26,6 +28,7 @@
         android:id="@+id/edtRntrc"
         android:hint="RNTRC"
         android:layout_marginTop="20dp"
+        android:maxLength="9"
         android:inputType="numberSigned"/>
 
 
